@@ -1,4 +1,4 @@
-import 'package:ai_care/features/Home/presentation/view/main_view.dart';
+import 'package:ai_care/presentation/pages/main_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
