@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
+class BottomBarItem {
+  final Icon icon;
+  final String? label;
+
+  const BottomBarItem({
+    required this.icon,
+    this.label,
+  });
+}
+
 class BottomBar extends StatefulWidget {
-  final List<Map> items;
+  final List<BottomBarItem> items;
   final Color backgroundColor;
   final Color selectedColor;
   final Color unSelectedColor;
@@ -33,8 +43,8 @@ class _BottomBarState extends State<BottomBar> {
   List<BottomNavigationBarItem> _buildBottomNavigationItems() {
     return widget.items.map((item) {
       return BottomNavigationBarItem(
-        icon: item['icon'],
-        label: item['label'],
+        icon: item.icon,
+        label: item.label,
       );
     }).toList();
   }
