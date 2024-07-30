@@ -11,7 +11,7 @@ class DevicesPage extends StatefulWidget implements MainViewPage {
   @override
   BottomBarItem getBottomBarItem() {
     return const BottomBarItem(
-      icon: Icon(Icons.phone_android, size: MainViewPage.bottomBarIconSize),
+      icon: Icons.phone_android,
       label: 'Devices',
     );
   }

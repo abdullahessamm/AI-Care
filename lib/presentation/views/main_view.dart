@@ -35,21 +35,23 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.accent,
         actions: const [
           Icon(
             Icons.person,
             size: 25,
-            color: Colors.white,
+            color: AppColors.secondary,
           )
         ],
       ),
       bottomNavigationBar: BottomBar(
-          backgroundColor: AppColors.primary,
-          selectedColor: Colors.red,
-          unSelectedColor: Colors.blue,
-          onChange: changePage,
-          items: _pages.map((page) => page.getBottomBarItem()).toList()),
+        backgroundColor: AppColors.accent,
+        selectedColor: AppColors.primary,
+        unSelectedColor: AppColors.bottomBarUnselectedColor,
+        onChange: changePage,
+        items: _pages.map((page) => page.getBottomBarItem()).toList(),
+        selectedBackgroundColor: AppColors.primary.withOpacity(0.17),
+      ),
       body: _pages[_currentPageIndex],
     );
   }

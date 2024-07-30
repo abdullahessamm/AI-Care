@@ -11,7 +11,7 @@ class ChatsPage extends StatefulWidget implements MainViewPage {
   @override
   BottomBarItem getBottomBarItem() {
     return const BottomBarItem(
-      icon: Icon(Icons.chat, size: MainViewPage.bottomBarIconSize),
+      icon: Icons.chat,
       label: 'Chat',
     );
   }

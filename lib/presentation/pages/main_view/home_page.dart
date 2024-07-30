@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget implements MainViewPage {
   @override
   BottomBarItem getBottomBarItem() {
     return const BottomBarItem(
-      icon: Icon(Icons.home, size: MainViewPage.bottomBarIconSize),
+      icon: Icons.home,
       label: "Home",
     );
   }
