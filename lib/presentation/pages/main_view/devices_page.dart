@@ -1,20 +1,10 @@
-import 'package:ai_care/core/widgets/bottom_bar.dart';
-import 'package:ai_care/presentation/pages/main_view/main_view_page.dart';
 import 'package:flutter/material.dart';
 
-class DevicesPage extends StatefulWidget implements MainViewPage {
+class DevicesPage extends StatefulWidget {
   const DevicesPage({super.key});
 
   @override
   State<DevicesPage> createState() => _DevicesPageState();
-
-  @override
-  BottomBarItem getBottomBarItem() {
-    return const BottomBarItem(
-      icon: Icons.phone_android,
-      label: 'Devices',
-    );
-  }
 }
 
 class _DevicesPageState extends State<DevicesPage> {
