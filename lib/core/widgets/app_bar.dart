@@ -4,7 +4,10 @@ import 'package:ai_care/core/constants/app_color.dart';
 import 'package:flutter/material.dart';
 
 class AiCareAppBar extends StatefulWidget {
-  const AiCareAppBar({super.key});
+  final String title;
+  bool showNotificationButton = true;
+  AiCareAppBar(
+      {super.key, required this.title, required this.showNotificationButton});
 
   @override
   State<AiCareAppBar> createState() => _AiCareAppBar();
@@ -31,7 +34,7 @@ class _AiCareAppBar extends State<AiCareAppBar> {
                         shape: BoxShape.circle,
                         border: Border.all(color: AppColors.primary),
                         boxShadow: [
-                          BoxShadow(color: AppColors.primary, blurRadius: 10),
+                          BoxShadow(color: AppColors.primary, blurRadius: 5),
                         ]),
                     child: CircleAvatar(
                       radius: 25,
@@ -40,7 +43,7 @@ class _AiCareAppBar extends State<AiCareAppBar> {
                   SizedBox(
                     width: 10,
                   ),
-                  Text('My App',
+                  Text(widget.title,
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w500,
@@ -50,16 +53,18 @@ class _AiCareAppBar extends State<AiCareAppBar> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.notifications,
-                      color: AppColors.primary,
-                      size: 30,
-                    ),
-                    onPressed: () {
-                      // Implement search functionality here
-                    },
-                  ),
+                  widget.showNotificationButton
+                      ? IconButton(
+                          icon: Icon(
+                            Icons.notifications,
+                            color: AppColors.primary,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            // Implement search functionality here
+                          },
+                        )
+                      : SizedBox(),
                   IconButton(
                     icon: Icon(
                       Icons.more_vert,

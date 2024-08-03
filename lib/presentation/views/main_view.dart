@@ -36,7 +36,11 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size.fromHeight(75.0), child: AiCareAppBar()),
+          preferredSize: Size.fromHeight(75.0),
+          child: AiCareAppBar(
+            title: "AI Care",
+            showNotificationButton: true,
+          )),
       bottomNavigationBar: BottomBar(
         backgroundColor: AppColors.accent,
         selectedColor: AppColors.primary,
