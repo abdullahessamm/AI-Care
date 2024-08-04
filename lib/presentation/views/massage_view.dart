@@ -57,10 +57,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
               onSendPressed: (msg) {
                 setState(() {
                   messages = List.from([
-                    {
-                      'isSender': true,
-                      'text': msg,
-                    },
+                    MessageType(message: msg, forSender: true),
                     ...messages
                   ]);
                 });

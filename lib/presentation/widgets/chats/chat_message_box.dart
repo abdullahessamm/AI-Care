@@ -51,7 +51,6 @@ class _ChatMessageBox extends State<ChatMessageBox> {
                       child: TextField(
                         controller: _messageController,
                         keyboardType: TextInputType.multiline,
-                        maxLines: 5,
                         decoration: InputDecoration(
                           hintText: "Type message",
                           border: InputBorder.none,
