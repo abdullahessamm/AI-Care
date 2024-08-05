@@ -1,4 +1,5 @@
 import 'package:ai_care/core/constants/app_color.dart';
+import 'package:ai_care/presentation/views/auth_view.dart';
 import 'package:ai_care/presentation/views/main_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  final bool isLoggedIn = false; // Replace with actual login status
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff183E9F)),
         useMaterial3: true,
       ),
-      home: const MainView(),
+      home: isLoggedIn ? const MainView() : const AuthView(),
     );
   }
 }
