@@ -7,9 +7,14 @@ import 'package:firebase_auth/firebase_auth.dart' as firebase;
 class FirebaseAuthDatasource implements IAuthDatasource {
   final firebase.FirebaseAuth _auth = firebase.FirebaseAuth.instance;
 
-  FirebaseAuthDatasource._privateConstructor() {}
+  FirebaseAuthDatasource._privateConstructor();
 
-  static get instance => FirebaseAuthDatasource._privateConstructor();
+  static final FirebaseAuthDatasource _instance =
+      FirebaseAuthDatasource._privateConstructor();
+
+  static get instance => _instance;
+
+  factory FirebaseAuthDatasource.getInstance() => _instance;
 
   @override
   Future<AuthResult> login(
