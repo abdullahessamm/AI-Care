@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "824252454675",
+    "project_id": "ai-care-95787",
+    "storage_bucket": "ai-care-95787.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824252454675:android:e99c3341183dd945afece6",
+        "android_client_info": {
+          "package_name": "com.abdullah.ai_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824252454675-pcebtsf2getue70s3vsemgim4ulqhp7v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT2ZZG2fMc1AXAIunjTZbBXdrvTP2gZQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824252454675-pcebtsf2getue70s3vsemgim4ulqhp7v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "824252454675-u6fosh5rv4gcn24doth7rr0u67atals0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aiCare"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824252454675:android:4b552b44e34fb9afafece6",
+        "android_client_info": {
+          "package_name": "com.example.ai_care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824252454675-pcebtsf2getue70s3vsemgim4ulqhp7v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT2ZZG2fMc1AXAIunjTZbBXdrvTP2gZQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824252454675-pcebtsf2getue70s3vsemgim4ulqhp7v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "824252454675-u6fosh5rv4gcn24doth7rr0u67atals0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aiCare"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

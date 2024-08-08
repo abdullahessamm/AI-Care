@@ -67,6 +67,7 @@ class SignupPageState extends State<SignupPage> {
             Container(
               padding: const EdgeInsets.all(20),
               width: MediaQuery.of(context).size.width * 0.85,
+              constraints: const BoxConstraints(maxWidth: 500),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
