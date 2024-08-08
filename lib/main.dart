@@ -1,7 +1,6 @@
 import 'package:ai_care/core/constants/app_color.dart';
 import 'package:ai_care/presentation/views/auth_view.dart';
 import 'package:ai_care/presentation/views/main_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,7 +31,7 @@ class _MyAppState extends State<MyApp> {
             systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
                 statusBarColor: AppColors.primary,
                 statusBarIconBrightness: Brightness.light)),
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff183E9F)),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
         useMaterial3: true,
       ),
       home: isLoggedIn ? const MainView() : const AuthView(),

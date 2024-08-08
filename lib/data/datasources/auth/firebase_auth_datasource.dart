@@ -5,14 +5,16 @@ import 'package:ai_care/domain/entities/user.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 
 class FirebaseAuthDatasource implements IAuthDatasource {
-  final firebase.FirebaseAuth _auth;
+  final firebase.FirebaseAuth _auth = firebase.FirebaseAuth.instance;
 
-  FirebaseAuthDatasource({firebase.FirebaseAuth? auth})
-      : _auth = auth ?? firebase.FirebaseAuth.instance;
+  FirebaseAuthDatasource._privateConstructor() {}
+
+  static get instance => FirebaseAuthDatasource._privateConstructor();
 
   @override
   Future<AuthResult> login(
       {required String email, required String password}) async {
+    _auth.currentUser?.updateProfile();
     try {
       firebase.UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
