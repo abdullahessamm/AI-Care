@@ -1,5 +1,4 @@
-import 'package:ai_care/data/datasources/auth/auth_datasource_interface.dart';
-import 'package:ai_care/domain/repositories/auth/auth_repository_interface.dart';
+import 'package:ai_care/domain/repositories/auth_repository_interfaces.dart';
 
 class LoginUsecase {
   final IAuthRepository _repository;

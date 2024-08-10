@@ -1,12 +1,5 @@
 import 'package:ai_care/domain/entities/user.dart';
 
-abstract class IAuthDatasource {
-  Future<AuthResult> login({required String email, required String password});
-  Future<AuthResult> signUp({required String email, required String password});
-  Future<void> logout();
-  Stream<User?> get userStream;
-}
-
 class AuthResult {
   final bool success;
   final User? user;

@@ -1,4 +1,4 @@
-import 'package:ai_care/domain/repositories/auth/auth_repository_interface.dart';
+import 'package:ai_care/domain/repositories/auth_repository_interfaces.dart';
 
 class LogoutUsecase {
   final IAuthRepository _repository;

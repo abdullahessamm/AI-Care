@@ -2,6 +2,7 @@ class User {
   final String? uid;
   final String? name;
   final String? email;
+  final String? password;
   final String? gender;
   final String? photoUri;
   final String? phoneNumber;
@@ -15,6 +16,7 @@ class User {
     this.uid,
     this.name,
     this.email,
+    this.password,
     this.photoUri,
     this.phoneNumber,
     this.birthDate,

@@ -1,4 +1,7 @@
 import 'package:ai_care/core/constants/app_color.dart';
+import 'package:ai_care/core/errors/firebase_errors.dart';
+import 'package:ai_care/data/repositories/auth/firebase_auth_repository.dart';
+import 'package:ai_care/domain/usecases/auth/login_with_google_usecase.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -83,8 +86,18 @@ class _LoginPageState extends State<LoginPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 15),
                     child: InkWell(
-                      onTap: () {
+                      onTap: () async {
                         // TODO: handle google login
+                        try {
+                          bool success = await LoginWithGoogleUsecase(
+                                  authRepository:
+                                      FirebaseAuthRepository.instance)
+                              .execute();
+                        } on FirebaseErrors catch (e) {
+                          print(e.code);
+                        } catch (e) {
+                          print(e);
+                        }
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 10),
