@@ -63,7 +63,6 @@ class FirebaseAuthDatasource {
     } on firebase.FirebaseAuthException catch (e) {
       throw FirebaseErrors(code: e.code, message: e.message);
     } catch (e) {
-      print(e);
       throw FirebaseErrors(
           code: 'unknown', message: 'An unknown error occurred');
     }
@@ -91,12 +90,11 @@ class FirebaseAuthDatasource {
     }
   }
 
+  firebase.User? get user => _auth.currentUser;
+
   /// getter for the current user as synchronously.
   Stream<User?> get userStream {
-    StreamController<User?> stream = StreamController<User?>();
-    _auth
-        .authStateChanges()
-        .listen((user) => stream.add(User(uid: user?.uid, email: user?.email)));
-    return stream.stream;
+    return _auth.authStateChanges().map((firebase.User? user) =>
+        user != null ? User(uid: user.uid, email: user.email) : null);
   }
 }

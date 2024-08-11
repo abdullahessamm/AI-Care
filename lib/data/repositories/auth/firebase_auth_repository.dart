@@ -21,36 +21,47 @@ class FirebaseAuthRepository
     try {
       firebase.UserCredential credential =
           await _authDatasource.login(email: email, password: password);
-      return AuthResult.success(_mapAuthUser(credential));
+      return AuthResult.success(_mapAuthUser(credential.user));
     } on FirebaseErrors catch (e) {
       return AuthResult.failure(e.message);
     }
   }
 
   @override
-  Future<void> logout() {
-    return _authDatasource.logout();
+  Future<void> logout() async {
+    await _authDatasource.logout();
   }
 
   @override
   Future<AuthResult> signUp(
       {required String email, required String password}) async {
-    firebase.UserCredential credential =
-        await _authDatasource.signUp(email: email, password: password);
-    return AuthResult.success(_mapAuthUser(credential));
+    try {
+      firebase.UserCredential credential =
+          await _authDatasource.signUp(email: email, password: password);
+      return AuthResult.success(_mapAuthUser(credential.user));
+    } on FirebaseErrors catch (e) {
+      return AuthResult.failure(e.message);
+    }
   }
+
+  User? get user =>
+      _authDatasource.user != null ? _mapAuthUser(_authDatasource.user) : null;
 
   @override
   Stream<User?> get userStream => _authDatasource.userStream;
 
   @override
   Future<AuthResult> loginWithGoogle() async {
-    firebase.UserCredential credential =
-        await _authDatasource.loginWithGoogle();
-    return AuthResult.success(_mapAuthUser(credential));
+    try {
+      firebase.UserCredential credential =
+          await _authDatasource.loginWithGoogle();
+      return AuthResult.success(_mapAuthUser(credential.user));
+    } on FirebaseErrors catch (e) {
+      return AuthResult.failure(e.message);
+    }
   }
-}
 
-User _mapAuthUser(firebase.UserCredential credential) {
-  return User(uid: credential.user?.uid, email: credential.user?.email);
+  User _mapAuthUser(firebase.User? user) {
+    return User(uid: user?.uid, email: user?.email);
+  }
 }

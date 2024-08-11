@@ -5,8 +5,7 @@ class LoginWithGoogleUsecase {
 
   LoginWithGoogleUsecase({required this.authRepository});
 
-  Future<bool> execute() async {
-    AuthResult result = await authRepository.loginWithGoogle();
-    return result.success;
+  Future<AuthResult> execute() async {
+    return await authRepository.loginWithGoogle();
   }
 }

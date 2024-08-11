@@ -1,14 +1,16 @@
 import 'package:ai_care/core/constants/app_color.dart';
+import 'package:ai_care/presentation/blocs/auth/auth_bloc.dart';
 import 'package:ai_care/presentation/views/auth_view.dart';
 import 'package:ai_care/presentation/views/main_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(BlocProvider(create: (context) => AuthBloc(), child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -19,7 +21,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final bool isLoggedIn = false;
+  bool isLoggedIn = false;
+
+  @override
+  void initState() {
+    final AuthBloc authBloc = context.read<AuthBloc>();
+    authBloc.add(CheckIfLoggedInEvent());
+    authBloc.stream.listen((AuthState state) {
+      setState(() {
+        isLoggedIn = state is Authenticated;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

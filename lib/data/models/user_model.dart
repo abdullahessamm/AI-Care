@@ -1,7 +1,13 @@
 import 'package:ai_care/domain/entities/user.dart';
 
 class UserModel {
-  final User user;
+  late User user;
 
-  UserModel(this.user);
+  UserModel.fromJson(Map<String, dynamic> json) {
+    user = User(
+        uid: json["uid"],
+        name: json["name"],
+        birthDate: json["birthDate"],
+        email: json["email"]);
+  }
 }
