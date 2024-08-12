@@ -25,6 +25,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    // PatientsStoreRepository().all.then((res) {});
+
     final AuthBloc authBloc = context.read<AuthBloc>();
     authBloc.add(CheckIfLoggedInEvent());
     authBloc.stream.listen((AuthState state) {

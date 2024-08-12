@@ -11,7 +11,7 @@ class CommunityPage extends StatefulWidget implements MainViewPage {
   @override
   BottomBarItem getBottomBarItem() {
     return const BottomBarItem(
-      icon: Icons.social_distance,
+      icon: Icons.forum_outlined,
       label: 'Comminity',
     );
   }

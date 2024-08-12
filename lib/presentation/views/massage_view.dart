@@ -4,7 +4,7 @@ import 'package:ai_care/presentation/widgets/chats/message.dart';
 import 'package:ai_care/presentation/widgets/chats/chat_message_box.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/widgets/app_bar.dart';
+import '../../core/widgets/ai_care_app_bar.dart';
 
 class MessagesScreen extends StatefulWidget {
   final List<MessageType> messages;
@@ -33,6 +33,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
           child: AiCareAppBar(
             title: "Messages",
             showNotificationButton: false,
+            menuItems: [],
           )),
       body: Container(
         child: Column(

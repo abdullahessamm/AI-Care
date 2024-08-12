@@ -5,9 +5,16 @@ import 'package:flutter/material.dart';
 
 class AiCareAppBar extends StatefulWidget {
   final String title;
-  bool showNotificationButton = true;
-  AiCareAppBar(
-      {super.key, required this.title, required this.showNotificationButton});
+  final List<String> menuItems;
+  final Function(int)? onMenuItemPressed;
+  final bool showNotificationButton;
+
+  const AiCareAppBar(
+      {super.key,
+      required this.title,
+      required this.menuItems,
+      this.onMenuItemPressed,
+      this.showNotificationButton = false});
 
   @override
   State<AiCareAppBar> createState() => _AiCareAppBar();
@@ -65,15 +72,31 @@ class _AiCareAppBar extends State<AiCareAppBar> {
                           },
                         )
                       : SizedBox(),
-                  IconButton(
-                    icon: Icon(
-                      Icons.more_vert,
-                      color: AppColors.primary,
-                      size: 30,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: PopupMenuButton(
+                      color: Colors.white,
+                      itemBuilder: (context) =>
+                          widget.menuItems.asMap().entries.map((entry) {
+                        return PopupMenuItem(
+                          value: entry.value,
+                          onTap: () {
+                            if (widget.onMenuItemPressed != null) {
+                              widget.onMenuItemPressed!(entry.key);
+                            }
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(entry.value),
+                          ),
+                        );
+                      }).toList(),
+                      child: Icon(
+                        Icons.more_vert,
+                        color: AppColors.primary,
+                        size: 30,
+                      ),
                     ),
-                    onPressed: () {
-                      // Implement more options functionality here
-                    },
                   ),
                 ],
               ),
